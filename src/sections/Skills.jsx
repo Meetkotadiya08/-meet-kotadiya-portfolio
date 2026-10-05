@@ -12,30 +12,35 @@ import {
   Sparkles,
   CheckCircle2,
   Languages,
-  HeartHandshake
+  HeartHandshake,
+  CreditCard,
+  FolderGit2,
+  Smartphone
 } from 'lucide-react';
 
 export const Skills = () => {
-  const { skills, softSkills, languages } = profileData;
+  const { skills, coreStrengths, languages } = profileData;
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   // Category Icon Resolver
   const getCategoryIcon = (category) => {
     switch (category) {
-      case 'iOS Development':
-        return <Layers className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
+      case 'Language':
+        return <Code className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
+      case 'iOS Frameworks':
+        return <Smartphone className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
       case 'Networking & APIs':
         return <Network className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />;
-      case 'Authentication & Services':
-        return <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />;
-      case 'Data & Storage':
+      case 'Data / Offline':
         return <Database className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
-      case 'Libraries & Packages':
+      case 'Libraries / SDKs':
         return <Package className="w-5 h-5 text-amber-600 dark:text-amber-400" />;
-      case 'Development Tools':
-        return <Wrench className="w-5 h-5 text-rose-600 dark:text-rose-400" />;
-      case 'Programming / Web Basics':
-        return <Code className="w-5 h-5 text-purple-600 dark:text-purple-400" />;
+      case 'Specialized / POS':
+        return <CreditCard className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />;
+      case 'Tools & Version Control':
+        return <FolderGit2 className="w-5 h-5 text-rose-600 dark:text-rose-400" />;
+      case 'Additional Tech':
+        return <Layers className="w-5 h-5 text-purple-600 dark:text-purple-400" />;
       default:
         return <Cpu className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
     }
@@ -57,11 +62,11 @@ export const Skills = () => {
             <Cpu className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
             <span>Technical Capabilities</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white tracking-tight">
-            Skills &amp; Technologies
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 dark:text-white tracking-tight">
+            Technical Skills
           </h2>
-          <p className="mt-2 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-            A comprehensive overview of my real-world iOS development toolchain, native frameworks, and technical competencies.
+          <p className="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+            Organized direct from my latest resume, covering native iOS frameworks, networking protocols, offline caching, and POS hardware workflows.
           </p>
         </div>
 
@@ -83,7 +88,7 @@ export const Skills = () => {
         </div>
 
         {/* Categorized Technical Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {filteredSkills.map((group) => (
             <div
               key={group.category}
@@ -98,7 +103,7 @@ export const Skills = () => {
                     {group.category}
                   </h3>
                   <span className="text-xs text-slate-500 dark:text-slate-400">
-                    {group.skills.length} competencies
+                    {group.skills.length} skills
                   </span>
                 </div>
               </div>
@@ -107,12 +112,12 @@ export const Skills = () => {
                 {group.description}
               </p>
 
-              {/* Badges / Tech Tags (Categorized, No Fake Percentages) */}
+              {/* Badges / Tech Tags */}
               <div className="flex flex-wrap gap-2 mt-auto pt-2">
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200 border border-slate-200/60 dark:border-slate-700/60 hover:border-blue-300 dark:hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200 border border-slate-200/60 dark:border-slate-700/60 hover:border-blue-400 dark:hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
                     {skill}
@@ -123,31 +128,31 @@ export const Skills = () => {
           ))}
         </div>
 
-        {/* Secondary Grid: Soft Skills & Languages */}
+        {/* Secondary Grid: Core Strengths & Languages */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 border-t border-slate-200 dark:border-slate-800">
           
-          {/* Soft Skills */}
+          {/* Core Strengths */}
           <div className="lg:col-span-7">
             <div className="flex items-center gap-2 mb-4">
               <HeartHandshake className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                Professional Soft Skills
+                Core Strengths
               </h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {softSkills.map((soft) => (
+              {coreStrengths.map((str) => (
                 <div
-                  key={soft.title}
+                  key={str.title}
                   className="p-4 rounded-xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-subtle"
                 >
                   <div className="flex items-center gap-2 mb-1.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                     <h4 className="font-semibold text-sm text-slate-900 dark:text-white">
-                      {soft.title}
+                      {str.title}
                     </h4>
                   </div>
                   <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed pl-6">
-                    {soft.description}
+                    {str.description}
                   </p>
                 </div>
               ))}
@@ -171,7 +176,7 @@ export const Skills = () => {
                   <span className="font-semibold text-sm text-slate-900 dark:text-white">
                     {lang.name}
                   </span>
-                  <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                     {lang.level}
                   </span>
                 </div>

@@ -12,7 +12,8 @@ import {
   CheckCircle, 
   Check, 
   Copy,
-  ExternalLink
+  ExternalLink,
+  Sparkles
 } from 'lucide-react';
 
 export const About = () => {
@@ -33,13 +34,13 @@ export const About = () => {
         <div className="flex flex-col items-start mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60 mb-3">
             <User className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-            <span>Profile &amp; Biodata</span>
+            <span>Profile &amp; Biography</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 dark:text-white tracking-tight">
             About Me
           </h2>
-          <p className="mt-2 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-            Professional background, core engineering strengths, and development focus in the Apple ecosystem.
+          <p className="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+            Professional background, core engineering strengths, and development focus across the Apple ecosystem.
           </p>
         </div>
 
@@ -58,11 +59,11 @@ export const About = () => {
             </div>
 
             {/* Development Focus */}
-            <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <div className="flex items-center gap-2.5 mb-4">
+            <div className="p-7 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <div className="flex items-center gap-2.5 mb-5">
                 <Code2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  Technical &amp; Development Focus
+                  Technical &amp; Architectural Focus
                 </h3>
               </div>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-700 dark:text-slate-300">
@@ -76,14 +77,14 @@ export const About = () => {
             </div>
 
             {/* Career Interests */}
-            <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <div className="flex items-center gap-2.5 mb-4">
+            <div className="p-7 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+              <div className="flex items-center gap-2.5 mb-5">
                 <Compass className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  Career Interests &amp; Direction
+                  Career Direction &amp; Goals
                 </h3>
               </div>
-              <ul className="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+              <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
                 {about.careerInterests.map((interest, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
                     <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -97,18 +98,18 @@ export const About = () => {
 
           {/* Right Column: Professional Biodata / Info Card */}
           <div className="lg:col-span-5">
-            <div className="sticky top-28 rounded-2xl bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-850 border border-slate-200 dark:border-slate-800 shadow-lg p-6 sm:p-8">
+            <div className="sticky top-28 rounded-3xl bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-850 border border-slate-200 dark:border-slate-800 shadow-xl p-6 sm:p-8">
               
               <div className="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
                 <div>
                   <span className="text-xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
-                    Biodata &amp; Profile Card
+                    Candidate Profile
                   </span>
                   <h3 className="text-xl font-extrabold text-slate-950 dark:text-white mt-1">
                     {personal.professionalName}
                   </h3>
                   <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                    {personal.title}
+                    {personal.title} &bull; Swift, UIKit &amp; SwiftUI
                   </p>
                 </div>
                 
@@ -149,7 +150,7 @@ export const About = () => {
                 <div className="py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
                   <span className="text-slate-500 dark:text-slate-400 font-medium">Experience</span>
                   <span className="font-semibold text-blue-600 dark:text-blue-400 sm:text-right">
-                    {personal.experience} Professional
+                    {personal.experience} Hands-on
                   </span>
                 </div>
 
@@ -194,7 +195,7 @@ export const About = () => {
                 <div className="py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
                   <span className="text-slate-500 dark:text-slate-400 font-medium">Phone</span>
                   <a
-                    href={`tel:${personal.phone.replace(/\s+/g, '')}`}
+                    href={`tel:${personal.phone.replace(/[\s-]+/g, '')}`}
                     className="font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
                   >
                     {personal.phone}
